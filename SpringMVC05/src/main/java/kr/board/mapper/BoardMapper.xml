@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- namespace : mapper Interface가 여러개일경우 구별하기 위해 사용 -->
+<mapper namespace="kr.board.mapper.BoardMapper">
+	
+	<!-- 전체리스트 조회 -->
+	<select id="getLists" resultType="kr.board.entity.Board">
+		select * from myboard order by idx desc	
+	</select>
+	
+	<!-- 게시판 등록 -->
+	<insert id="boardInsert" parameterType="kr.board.entity.Board">
+		insert into myboard(title, content, writer)
+		values(#{title},#{content},#{writer})
+	</insert>
+</mapper>
