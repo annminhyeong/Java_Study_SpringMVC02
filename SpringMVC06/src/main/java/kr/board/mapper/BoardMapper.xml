@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- namespace : mapper Interface가 여러개일경우 구별하기 위해 사용 -->
+<mapper namespace="kr.board.mapper.BoardMapper">
+	
+	<!-- 게시판 조회 -->
+	<select id="getLists" resultType="kr.board.entity.Board">
+		select * from myboard order by idx desc	
+	</select>
+	
+	<!-- 게시판 등록 -->
+	<insert id="boardInsert" parameterType="kr.board.entity.Board">
+		insert into myboard(title, content, writer)
+		values(#{title},#{content},#{writer})
+	</insert>
+	
+	<!-- 게시판 상세보기 -->
+	<!-- 파라미터가 1개인경우 생략가능 -->
+	<select id="boardContent" resultType="kr.board.entity.Board">
+		select * from myboard where idx = #{idx}
+	</select>
+	
+	<!-- 게시판 삭제하기 -->
+	<delete id="boardDelete" parameterType="int">
+		delete from myboard where idx = #{idx}
+	</delete>
+	
+	<!-- 게시판 삭제하기 -->
+	<update id="boardUpdate" parameterType="kr.board.entity.Board">
+		update myboard set title = #{title}, content = #{content} where idx = #{idx}
+	</update>
+</mapper>

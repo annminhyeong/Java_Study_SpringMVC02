@@ -6,4 +6,27 @@
 			<item value="org.eclipse.wst.jsdt.ui.java"/>
 		</list>
 	</section>
+	<section name="ImportExportAction">
+		<item key="ImportExportPage.STORE_SELECTED_EXPORT_WIZARD_ID" value="org.eclipse.ui.wizards.export.ZipFile"/>
+		<list key="ImportExportPage.STORE_EXPANDED_EXPORT_CATEGORIES">
+			<item value="org.eclipse.ui.Basic"/>
+		</list>
+	</section>
+	<section name="FileSystemExportWizard">
+		<item key="WizardFileSystemResourceExportPage1.STORE_OVERWRITE_EXISTING_FILES_ID" value="false"/>
+		<item key="WizardFileSystemResourceExportPage1.STORE_CREATE_STRUCTURE_ID" value="false"/>
+		<item key="WizardFileSystemResourceExportPage1.STORE_RESOLVE_LINKED_RESOURCES_ID" value="false"/>
+		<list key="WizardFileSystemResourceExportPage1.STORE_DESTINATION_NAMES_ID">
+			<item value="C:\Users\rnrnc\Desktop"/>
+		</list>
+	</section>
+	<section name="ZipFileExportWizard">
+		<item key="WizardZipFileResourceExportPage1.STORE_CREATE_STRUCTURE_ID" value="true"/>
+		<item key="WizardZipFileResourceExportPage1.STORE_COMPRESS_CONTENTS_ID" value="true"/>
+		<list key="WizardZipFileResourceExportPage1.STORE_DESTINATION_NAMES_ID">
+			<item value="C:\Users\rnrnc\Desktop\m5.zip"/>
+		</list>
+	</section>
+	<section name="ZipFileImportWizard">
+	</section>
 </section>
