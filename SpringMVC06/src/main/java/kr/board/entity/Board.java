@@ -14,14 +14,13 @@ public class Board {
 	private String indate;  //작성일
 	private int count;      //조회수
 	
-	Board() {}
+	public Board() {}
 	Board(int idx, String title, String content, String writer, String indate, int count) {
-		super();
 		this.idx = idx;
 		this.title = title;
 		this.content = content;
 		this.writer = writer;
 		this.indate = indate;
 		this.count = count;
-	}	
+	}
 }
