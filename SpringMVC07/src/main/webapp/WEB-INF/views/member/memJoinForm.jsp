@@ -98,7 +98,12 @@
               <td colspan="2">
                 <div class="form-group text-center">
                   <div class="btn-group" data-toggle="buttons">
-                    <label class="btn btn-primary active"><input id="memGender" name="memGender" type="radio" autocomplete="off" value="남자" checked>남자 </label> <label class="btn btn-primary"><input id="memGender" name="memGender" type="radio" autocomplete="off" value="여자">여자 </label>
+                    <label class="btn btn-primary active">
+                      <input id="memGender" name="memGender" type="radio" autocomplete="off" value="남자" checked>남자
+                    </label>
+                    <label class="btn btn-primary">
+                      <input id="memGender" name="memGender" type="radio" autocomplete="off" value="여자">여자
+                    </label>
                   </div>
                 </div>
               </td>

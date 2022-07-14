@@ -13,4 +13,10 @@ public interface MemberMapper {
 	
 	//회원가입 (성공1, 실패0)
 	public int register(Member m);
+	
+	//로그인
+	public Member memLogin(Member mvo);
+	
+	//회원정부 수정
+	public int memUpdate(Member mvo);
 }
