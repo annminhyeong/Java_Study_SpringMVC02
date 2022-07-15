@@ -24,9 +24,6 @@
   <jsp:include page="common/header.jsp" />
   <div class="container">
     <h3>SpringMVC07</h3>
-    <c:if test="${!empty mvo}">
-      <h3>${mvo.memName}님 방문을 환영합니다.</h3>
-    </c:if>
     <div class="panel panel-default">
       <div>
         <img src="${contextPath}/resources/img/main.png" style="width: 100%; height: 500px;">

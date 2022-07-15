@@ -11,8 +11,8 @@
 	
 	<!-- 게시판 등록 -->
 	<insert id="boardInsert" parameterType="kr.board.entity.Board">
-		insert into myboard(title, content, writer)
-		values(#{title},#{content},#{writer})
+		insert into myboard(memID, title, content, writer)
+		values(#{memID}, #{title}, #{content}, #{writer})
 	</insert>
 	
 	<!-- 게시판 상세보기 -->

@@ -27,7 +27,7 @@
     <div class="panel panel-default">
       <div class="panel-heading">사진등록</div>
       <div class="panel-body">
-        <form name="frm" action="${contextPath}/memImageUpdate.do" method="post" enctype="mutipart/form-data">
+        <form name="frm" action="${contextPath}/memImageUpdate.do" method="post" enctype="multipart/form-data">
           <input type="hidden" id="memID" name="memID" value="${mvo.memID}">
           <table class="table table-bordered text-center">
             <tr>

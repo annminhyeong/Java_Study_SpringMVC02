@@ -19,4 +19,10 @@ public interface MemberMapper {
 	
 	//회원정부 수정
 	public int memUpdate(Member mvo);
+	
+	//기존에 저장되어 있는 파일명 검색하기
+	public Member getMember(String memID);
+	
+	//프로필 업데이트
+	public void memProfileUpdate(Member m);
 }

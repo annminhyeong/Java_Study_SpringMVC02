@@ -50,19 +50,28 @@
   			listHTML += "<td>내용</td>";
   			listHTML += "<td colspan='4'>";
   			listHTML += "<textarea rows='7' readonly class='form-control' id='ta"+obj.idx+"'></textarea>";
-  			listHTML += "<br>";
-  			listHTML += "<span id='ub"+obj.idx+"'><button class='btn btn-success btn-sm' onclick='goUpdateForm("+obj.idx+")'>수정</button></span>&nbsp;";
-  			listHTML += "<button class='btn btn-warning btn-sm' onclick='goDelete("+obj.idx+")'>삭제</button>";
+  			if("${mvo.memID}" === obj.memID){
+    			listHTML += "<br>";
+    			listHTML += "<span id='ub"+obj.idx+"'><button class='btn btn-success btn-sm' onclick='goUpdateForm("+obj.idx+")'>수정</button></span>&nbsp;";
+    			listHTML += "<button class='btn btn-warning btn-sm' onclick='goDelete("+obj.idx+")'>삭제</button>";
+  			}else{
+  				listHTML += "<br>";
+    			listHTML += "<span id='ub"+obj.idx+"'><button disabled class='btn btn-success btn-sm' onclick='goUpdateForm("+obj.idx+")'>수정</button></span>&nbsp;";
+    			listHTML += "<button disabled class='btn btn-warning btn-sm' onclick='goDelete("+obj.idx+")'>삭제</button>";
+  			}
   			listHTML += "</td>";
   			listHTML += "</tr>";
   		});
   		
-  		listHTML += "<tr>";
-  		listHTML += "<td colspan='5'>";
-  		listHTML += "<button class='btn btn-primary btn-sm' onclick='goForm()'>글쓰기</button>"
-  		listHTML += "</td>";
-  		listHTML += "</tr>";
-  		listHTML += "</table>"
+  		//로그인을 해야 보이는 부분
+  		if(${!empty mvo}){
+    		listHTML += "<tr>";
+    		listHTML += "<td colspan='5'>";
+    		listHTML += "<button class='btn btn-primary btn-sm' onclick='goForm()'>글쓰기</button>"
+    		listHTML += "</td>";
+    		listHTML += "</tr>";
+    		listHTML += "</table>"
+  		}
   		$('#view').html(listHTML);
   		$('#view').css('display','block')
   		$('#wForm').css('display','none')
@@ -156,6 +165,7 @@
       <div class="panel-body" id="view">Panel Content</div>
       <div class="panel-body" id="wForm" style="display: none;">
         <form id="frm">
+          <input type="hidden" value="${mvo.memID}" name="memID" id="memID">
           <table class="table">
             <tr>
               <td>제목</td>
@@ -167,7 +177,7 @@
             </tr>
             <tr>
               <td>작성자</td>
-              <td><input type="text" class="form-control" name=writer id="writer"></td>
+              <td><input type="text" value="${mvo.memName}" readonly class="form-control" name=writer id="writer"></td>
             </tr>
             <tr>
               <td colspan="2" align="center">
