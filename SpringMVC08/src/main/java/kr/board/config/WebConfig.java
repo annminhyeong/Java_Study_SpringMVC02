@@ -26,7 +26,7 @@ public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitiali
 	protected Class<?>[] getRootConfigClasses() {
 		
 		//객체 배열를 생성 (클래스들의 환경세팅이 여려개일 수 있으므로 배열객체 생성)
-		return new Class[] {RootConfig.class};
+		return new Class[] {RootConfig.class, SecurityConfig.class};
 	}
 	
 	//ServletConfig(servlet-context.xml 대용) 파일을 매핑하는 역할을 함  

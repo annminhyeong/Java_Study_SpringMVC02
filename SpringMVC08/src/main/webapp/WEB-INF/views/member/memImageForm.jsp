@@ -27,7 +27,8 @@
     <div class="panel panel-default">
       <div class="panel-heading">사진등록</div>
       <div class="panel-body">
-        <form name="frm" action="${contextPath}/memImageUpdate.do" method="post" enctype="multipart/form-data">
+        <!-- 파일인 경우는 get방식처럼 보내야함 -->
+        <form name="frm" action="${contextPath}/memImageUpdate.do?${_csrf.parameterName}=${_csrf.token}" method="post" enctype="multipart/form-data">
           <input type="hidden" id="memID" name="memID" value="${mvo.memID}">
           <table class="table table-bordered text-center">
             <tr>

@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
-//빈 등록을 위한 어노테이션
+//빈(환경설정) 등록을 위한 어노테이션
 @Configuration
 
 //WEB MVC 어노테이션을 쓸 수 있게 선언 

@@ -11,6 +11,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script type="text/javascript">
+	let csrfHeaderName = "${_csrf.headerName}";
+	let csrfTokenValue = "${_csrf.token}";
+	
   	$(document).ready(function(){
 		loadList();
 	});
@@ -91,11 +94,12 @@
   	function goInsert() {
 		let fData =  $('#frm').serialize()
 		$.ajax({
-			url     : 'board/new',
-			type    : 'post',
-			data    : fData,
-			success : loadList,
-			error   : ()=> alert('error')
+			url        : 'board/new',
+			type       : 'post',
+			data       : fData,
+			beforeSend : (xhr)=> xhr.setRequestHeader(csrfHeaderName, csrfTokenValue),
+			success    : loadList,
+			error      : ()=> alert('error')
 		});
 		$('#fClear').click();
 	}
@@ -114,21 +118,23 @@
   		}else{
   			$('#c'+idx).css('display','none')
   			$.ajax({
-				url      : 'board/count/'+idx,
-				type     : 'put',
-				dataType : "json",
-				success  : (data)=>{$('#cnt'+idx).text(data.count)},
-				error    : ()=> alert('error')
+				url        : 'board/count/'+idx,
+				type       : 'put',
+				dataType   : "json",
+				beforeSend : (xhr)=> xhr.setRequestHeader(csrfHeaderName, csrfTokenValue),
+				success    : (data)=>{$('#cnt'+idx).text(data.count)},
+				error      : ()=> alert('error')
 			})
   		}
 	}
   	
   	function goDelete(idx) {
 		$.ajax({
-			url     : 'board/'+idx,
-			type    : 'delete',
-			success : loadList,
-			error   : ()=> alert('error')
+			url        : 'board/'+idx,
+			type       : 'delete',
+			beforeSend : (xhr)=> xhr.setRequestHeader(csrfHeaderName, csrfTokenValue),
+			success    : loadList,
+			error      : ()=> alert('error')
 		})
 	}
   	
@@ -150,6 +156,7 @@
 			type        : 'put',
 			contentType : 'application/json;charset=utf-8', //json으로 넘기겠다는 뜻
 			data        : JSON.stringify({'idx' : idx, 'title': title, 'content': content}), //spring을 json으로 변환
+			beforeSend  : (xhr)=> xhr.setRequestHeader(csrfHeaderName, csrfTokenValue),
 			success     : loadList,
 			error       : ()=> alert('error')
 		})

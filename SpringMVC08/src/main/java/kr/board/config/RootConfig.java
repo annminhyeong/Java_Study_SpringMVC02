@@ -14,7 +14,7 @@ import org.springframework.core.env.Environment;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
-//빈 등록을 위한 어노테이션
+//빈(환경설정) 등록을 위한 어노테이션
 @Configuration
 
 //@Mapper 어노테이션을 스캔해 bean객체에 등록해줌

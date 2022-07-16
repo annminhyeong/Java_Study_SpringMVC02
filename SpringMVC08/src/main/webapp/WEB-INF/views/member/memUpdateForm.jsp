@@ -50,6 +50,7 @@
       <div class="panel-heading">회원정보수정</div>
       <div class="panel-body">
         <form name="frm" action="${contextPath}/memUpdate.do" method="post">
+          <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
           <input id="memID" name="memID" type="hidden" value="${mvo.memID}">
           <input id="memPassword" name="memPassword" type="hidden" value="">
           <table class="table table-bordered text-center">

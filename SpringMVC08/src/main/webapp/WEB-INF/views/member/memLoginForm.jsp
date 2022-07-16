@@ -28,6 +28,7 @@
       <div class="panel-heading">로그인</div>
       <div class="panel-body">
         <form name="frm" action="${contextPath}/memLogin.do" method="post">
+          <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
           <table class="table table-bordered text-center">
             <tr>
               <td style="width: 110px; vertical-align: middle;">아이디</td>

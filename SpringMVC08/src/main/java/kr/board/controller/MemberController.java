@@ -148,8 +148,9 @@ public class MemberController {
 		if(result == 1) {
 		   rAttr.addFlashAttribute("msgType","성공 메세지");
 		   rAttr.addFlashAttribute("msg","회원정보수정에 성공했습니다.");
+		   Member mvo = membermapper.getMember(m.getMemID());
 		   //회원정보 수정이 성공하면 로그인처리하기
-		   session.setAttribute("mvo", m);
+		   session.setAttribute("mvo", mvo);
 		   return "redirect:/";
 		}else {
 		   rAttr.addFlashAttribute("msgType","실패 메세지");

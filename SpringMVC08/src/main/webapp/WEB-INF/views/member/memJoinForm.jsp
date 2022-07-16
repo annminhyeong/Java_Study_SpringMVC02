@@ -70,6 +70,8 @@
       <div class="panel-heading">회원가입</div>
       <div class="panel-body">
         <form name="frm" action="${contextPath}/memRegister.do" method="post">
+          <!-- 스프링 시큐리티 토큰 -->
+          <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
           <input id="memPassword" name="memPassword" type="hidden" value="">
           <table class="table table-bordered text-center">
             <tr>
