@@ -96,6 +96,26 @@
               <td colspan="2"><input id="memEmail" name="memEmail" type="text" maxlength="20" placeholder="이메일을 입력하세요" value="${mvo.memEmail}" class="form-control"></td>
             </tr>
             <tr>
+              <td style="width: 110px; vertical-align: middle;">사용자 권한</td>
+              <td colspan="2">
+                <input type="checkbox" name="authList[0].auth" value="ROLE_USER"
+                <c:forEach var="authVO" items="${mvo.authList}"> 
+                  <c:if test="${authVO.auth eq 'ROLE_USER'}">checked</c:if>
+                </c:forEach>
+                />ROLE_USER
+                <input type="checkbox" name="authList[1].auth" value="ROLE_MANAGER"
+                <c:forEach var="authVO" items="${mvo.authList}"> 
+                  <c:if test="${authVO.auth eq 'ROLE_MANAGER'}">checked</c:if>
+                </c:forEach>
+                />ROLE_MANAGER
+                <input type="checkbox" name="authList[2].auth" value="ROLE_ADMIN"
+                <c:forEach var="authVO" items="${mvo.authList}"> 
+                  <c:if test="${authVO.auth eq 'ROLE_ADMIN'}">checked</c:if>
+                </c:forEach>
+                />ROLE_ADMIN
+              </td>
+            </tr>
+            <tr>
               <td colspan="3" class="text-right"><input type="button" value="수정" class="btn btn-primary btn-sm" onclick="goUpdate()"></td>
             </tr>
           </table>

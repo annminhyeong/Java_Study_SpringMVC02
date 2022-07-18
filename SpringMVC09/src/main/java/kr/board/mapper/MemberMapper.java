@@ -29,4 +29,7 @@ public interface MemberMapper {
 	
 	//권한테이블 저장
 	public void authInsert(AuthVO saveVO);
+	
+	//권한 삭제
+	public void authDelete(String memID);
 }

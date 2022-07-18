@@ -57,7 +57,7 @@
     <fullyQualifiedTypeName name="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="org.springframework.security.crypto.password.PasswordEncoder"/>
+    <fullyQualifiedTypeName name="kr.board.entity.Member"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="kr.board.entity.AuthVO"/>
-    <fullyQualifiedTypeName name="kr.board.entity.Member"/>
 </qualifiedTypeNameHistroy>

@@ -59,7 +59,7 @@ public class MemberController {
 		   m.getMemName()==null     || m.getMemName().equals("")     ||
 		   m.getMemGender()==null   || m.getMemGender().equals("")   ||
 		   m.getMemEmail()==null    || m.getMemEmail().equals("")    ||
-		   m.getMemAge()==0         || m.getAuthList().size() == 0
+		   m.getMemAge()==0         || m.getAuthList().size()==0
 		){	
 		   //객체바인딩을 한번만 리다이렉트해서 전달함
 		   rAttr.addFlashAttribute("msgType","실패 메세지");
@@ -167,7 +167,7 @@ public class MemberController {
 		   m.getMemName()==null     || m.getMemName().equals("")     ||
 		   m.getMemGender()==null   || m.getMemGender().equals("")   ||
 		   m.getMemEmail()==null    || m.getMemEmail().equals("")    ||
-		   m.getMemAge()==0
+		   m.getMemAge()==0         || m.getAuthList().size()==0
 		){	
 		   //객체바인딩을 한번만 리다이렉트해서 전달함
 		   rAttr.addFlashAttribute("msgType","실패 메세지");
@@ -180,9 +180,25 @@ public class MemberController {
 		   rAttr.addFlashAttribute("msg","비밀번호가 서로 다릅니다.");
 		   return "redirect:/memUpdateForm.do";
 		}
+		//비밀번호 암호화
+		String encyptPw = pwEncoder.encode(m.getMemPassword());
+		m.setMemPassword(encyptPw);
 		
 		int result = membermapper.memUpdate(m);
 		if(result == 1) {
+		   //기존권한을 삭제하고
+			membermapper.authDelete(m.getMemID());
+
+		   //새로운권한 추가하기
+		   List<AuthVO> list = m.getAuthList();
+		   for(AuthVO authVO : list) {
+			   if(authVO.getAuth()!=null) {
+				   AuthVO saveVO = new AuthVO();
+				   saveVO.setMemID(m.getMemID());
+				   saveVO.setAuth(authVO.getAuth());
+				   membermapper.authInsert(saveVO);
+			   }
+		   }
 		   rAttr.addFlashAttribute("msgType","성공 메세지");
 		   rAttr.addFlashAttribute("msg","회원정보수정에 성공했습니다.");
 		   Member mvo = membermapper.getMember(m.getMemID());

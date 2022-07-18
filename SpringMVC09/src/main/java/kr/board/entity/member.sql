@@ -19,4 +19,5 @@ create table mem_auth(
 )
 
 select * from mem_stbl
+
 select * from mem_auth
