@@ -7,16 +7,16 @@ create table myboard(
 	indate datetime default now(),
 	count int default 0,
 	primary key(idx)
-);
+)
 delete from myboard
 
-drop table myboard;
+drop table myboard
 
 insert into myboard(title,content,writer)
-values('게시판 연습','게시판 연습','관리자');
+values('게시판 연습','게시판 연습','관리자')
 insert into myboard(title,content,writer)
-values('게시판 연습','게시판 연습','박매일');
+values('게시판 연습','게시판 연습','박매일')
 insert into myboard(title,content,writer)
-values('게시판 연습','게시판 연습','선생님');
+values('게시판 연습','게시판 연습','선생님')
 
-select * from myboard order by idx desc;
+select * from myboard order by idx desc
